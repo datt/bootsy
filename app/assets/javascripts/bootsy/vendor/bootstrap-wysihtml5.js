@@ -15,8 +15,19 @@
                 "<li><a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h3' tabindex='-1' role='menuitem'>" + locale.font_styles.h3 + "</a></li>" +
               "</ul>" +
             "</li>";
-        },   
-        
+        },
+
+        "emphasis": function(locale, options) {
+            var size = (options && options.size) ? ' btn-'+options.size : '';
+            return "<li>" +
+              "<div class='btn-group'>" +
+                "<a class='btn btn-default " + size + "' data-wysihtml5-command='bold' title='CTRL+B' tabindex='-1'><i class='fa fa-bold' title='" + locale.emphasis.bold + "'></i></a>" +
+                "<a class='btn btn-default " + size + "' data-wysihtml5-command='italic' title='CTRL+I' tabindex='-1'><i class='fa fa-italic' title='" + locale.emphasis.italic + "'></i></a>" +
+                "<a class='btn btn-default " + size + "' data-wysihtml5-command='underline' title='CTRL+U' tabindex='-1'><i class='fa fa-underline' title='" + locale.emphasis.underline + "'></i></a>" +
+              "</div>" +
+            "</li>";
+        },
+
         "textalign": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';
             return "<li>" +
@@ -24,17 +35,6 @@
                 "<a class='btn btn-default " + size + "' data-wysihtml5-command='justifyLeft' tabindex='-1'><span class='glyphicon glyphicon-align-left'></span></a>" +
                 "<a class='btn btn-default " + size + "' data-wysihtml5-command='justifyCenter' tabindex='-1'><span class='glyphicon glyphicon-align-center'></span></a>" +
                 "<a class='btn btn-default " + size + "' data-wysihtml5-command='justifyRight' tabindex='-1'><span class='glyphicon glyphicon-align-right'></span></a>" +
-              "</div>" +
-            "</li>";
-        },
-
-        "emphasis": function(locale, options) {
-            var size = (options && options.size) ? ' btn-'+options.size : '';
-            return "<li>" +
-              "<div class='btn-group'>" +
-                "<a class='btn btn-default " + size + "' data-wysihtml5-command='bold' title='CTRL+B' tabindex='-1'>" + locale.emphasis.bold + "</a>" +
-                "<a class='btn btn-default " + size + "' data-wysihtml5-command='italic' title='CTRL+I' tabindex='-1'>" + locale.emphasis.italic + "</a>" +
-                "<a class='btn btn-default " + size + "' data-wysihtml5-command='underline' title='CTRL+U' tabindex='-1'>" + locale.emphasis.underline + "</a>" +
               "</div>" +
             "</li>";
         },
@@ -185,6 +185,11 @@
                 'style': "display:none"
             });
             var culture = options.locale || defaultOptions.locale || "en";
+
+            console.log('//////////////////////////');
+            console.dir(defaultOptions);
+            console.dir(options);
+
             for(var key in defaultOptions) {
                 var value = false;
 
@@ -216,6 +221,8 @@
                     }
                 }
             }
+
+            console.dir(options.toolbar);
 
             if(options.toolbar) {
                 for(key in options.toolbar) {
@@ -420,6 +427,7 @@
         "font-styles": true,
         "color": false,
         "emphasis": true,
+        "textalign": true,
         "lists": true,
         "html": false,
         "link": true,
@@ -444,7 +452,10 @@
                 "wysiwyg-color-blue" : 1,
                 "wysiwyg-color-teal" : 1,
                 "wysiwyg-color-aqua" : 1,
-                "wysiwyg-color-orange" : 1
+                "wysiwyg-color-orange" : 1,
+                "wysiwyg-text-align-left": 1,
+                "wysiwyg-text-align-center": 1,
+                "wysiwyg-text-align-right": 1,
             },
             tags: {
                 "b":  {},
