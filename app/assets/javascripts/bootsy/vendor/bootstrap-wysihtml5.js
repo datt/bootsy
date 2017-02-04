@@ -15,6 +15,17 @@
                 "<li><a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h3' tabindex='-1' role='menuitem'>" + locale.font_styles.h3 + "</a></li>" +
               "</ul>" +
             "</li>";
+        },   
+        
+        "textalign": function(locale, options) {
+            var size = (options && options.size) ? ' btn-'+options.size : '';
+            return "<li>" +
+              "<div class='btn-group'>" +
+                "<a class='btn btn-default " + size + "' data-wysihtml5-command='justifyLeft' tabindex='-1'><span class='glyphicon glyphicon-align-left'></span></a>" +
+                "<a class='btn btn-default " + size + "' data-wysihtml5-command='justifyCenter' tabindex='-1'><span class='glyphicon glyphicon-align-center'></span></a>" +
+                "<a class='btn btn-default " + size + "' data-wysihtml5-command='justifyRight' tabindex='-1'><span class='glyphicon glyphicon-align-right'></span></a>" +
+              "</div>" +
+            "</li>";
         },
 
         "emphasis": function(locale, options) {
