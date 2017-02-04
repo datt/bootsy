@@ -20,6 +20,7 @@ Bootsy.Area = function($el) {
     html: $el.data('bootsy-html'),
     image: $el.data('bootsy-image'),
     link: $el.data('bootsy-link'),
+    textalign: $el.data('bootsy-textalign'),
     lists: $el.data('bootsy-lists'),
     events: {
       change: function() {
