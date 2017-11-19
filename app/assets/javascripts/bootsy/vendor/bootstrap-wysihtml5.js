@@ -342,8 +342,8 @@
                 }
                 self.editor.composer.commands.exec("createLink", {
                     href: url,
-                    target: "_blank",
-                    rel: "nofollow"
+                    target: "_blank"
+                    // rel: "nofollow"
                 });
             };
             var pressedEnter = false;
@@ -479,8 +479,8 @@
                 },
                 "a":  {
                     set_attributes: {
-                        target: "_blank",
-                        rel:    "nofollow"
+                        target: "_blank"
+                        // rel:    "nofollow"
                     },
                     check_attributes: {
                         href:   "url" // important to avoid XSS
